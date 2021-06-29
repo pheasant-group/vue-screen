@@ -3,11 +3,29 @@
         <div>
             <h3 class="drawer-title">设置</h3>
             <div class="drawer-item">
+                <span>标题</span>
+                <el-input
+                    placeholder="请输入标题"
+                    v-model="title"
+                    clearable
+                    size="small"
+                    @change="value => changeSetting('title', value)"
+                ></el-input>
+            </div>
+            <div class="drawer-item">
                 <span>背景颜色</span>
                 <Color-picker
                     style="float: right;height: 26px;margin: -3px 8px 0 0;"
                     :color="setting.bgcolor"
-                    @change="changeBgColor"
+                    @change="value => changeSetting('bgColor', value)"
+                ></Color-picker>
+            </div>
+            <div class="drawer-item">
+                <span>字体颜色</span>
+                <Color-picker
+                    style="float: right;height: 26px;margin: -3px 8px 0 0;"
+                    :color="setting.bgcolor"
+                    @change="value => changeSetting('fontColor', value)"
                 ></Color-picker>
             </div>
         </div>
@@ -24,6 +42,7 @@ export default {
     },
     data() {
         return {
+            title: ''
         }
     },
     computed: {
@@ -32,11 +51,8 @@ export default {
         ])
     },
     methods: {
-        changeBgColor(value) {
-            this.$store.dispatch('setting/changeSetting', {
-                key: 'bgColor',
-                value: value
-            })
+        changeSetting(key, value) {
+            this.$store.dispatch('setting/changeSetting', { key, value })
         }
     }
 }
@@ -62,10 +78,14 @@ export default {
         color: rgba(0, 0, 0, 0.65);
         font-size: 14px;
         padding: 12px 0;
-    }
-
-    .drawer-switch {
-        float: right;
+        display: flex;
+        justify-content: space-between;
+        span {
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
     }
 }
 </style>

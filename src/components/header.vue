@@ -3,19 +3,29 @@
         <component v-bind:is="headerLeft" class="header-left-decoration"></component>
         <dv-decoration-5 class="header-center-decoration" />
         <dv-decoration-8 class="header-right-decoration" :reverse="true" />
-        <div class="center-title">驻藏BD副食品筹措可视化大屏</div>
+        <div class="center-title" :style="{ color: setting.fontColor }">{{ title }}</div>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     name: 'Header',
     props: {
         headerLeft: {
             type: String,
             default: 'dv-decoration-8'
+        },
+        title: {
+            type: String
         }
-    }
+    },
+    computed: {
+        ...mapGetters([
+            'setting'
+        ])
+    },
 }
 </script>
 

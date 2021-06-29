@@ -1,7 +1,7 @@
 <template>
     <div class="home" :style="{ backgroundColor: setting.bgColor }">
         <dv-full-screen-container>
-            <Header />
+            <Header :title="setting.title" />
             <Main />
             <right-panel v-if="setting.showSetting">
                 <Setting />
