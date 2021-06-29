@@ -16,7 +16,8 @@
                 <span>背景颜色</span>
                 <Color-picker
                     style="float: right;height: 26px;margin: -3px 8px 0 0;"
-                    :color="setting.bgcolor"
+                    :color="bgColor"
+                    key="bgColor"
                     @change="value => changeSetting('bgColor', value)"
                 ></Color-picker>
             </div>
@@ -24,7 +25,8 @@
                 <span>字体颜色</span>
                 <Color-picker
                     style="float: right;height: 26px;margin: -3px 8px 0 0;"
-                    :color="setting.bgcolor"
+                    :color="fontColor"
+                    key="fontColor"
                     @change="value => changeSetting('fontColor', value)"
                 ></Color-picker>
             </div>
@@ -58,6 +60,8 @@ export default {
     data() {
         return {
             title: '',
+            bgcolor: '',
+            fontColor: '',
             globalBorder: '',
             globalBorderOptions: Array.from({ length: 12 }, (item, index) => `dv-border-box-${index + 1}`)
         }
@@ -66,6 +70,12 @@ export default {
         ...mapGetters([
             'setting'
         ])
+    },
+    created() {
+        this.title = this.setting.title
+        this.bgColor = this.setting.bgColor
+        this.fontColor = this.setting.fontColor
+        this.globalBorder = this.setting.globalBorder
     },
     methods: {
         changeSetting(key, value) {

@@ -41,8 +41,7 @@ export default {
     },
     props: {
         color: {
-            type: String,
-            default: ''
+            type: String
         }
     },
     data() {
@@ -80,7 +79,6 @@ export default {
     watch: {
         colors: {
             handler: function(value) {
-                console.log(value);
                 this.$emit('change', value)
             },
             deep: true
