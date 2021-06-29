@@ -25,12 +25,12 @@ export default {
     .header-center-decoration {
         width: 40%;
         height: 60px;
-        margin-top: 30px;
+        margin-top: 50px;
     }
 
     .header-left-decoration,
     .header-right-decoration {
-        width: 25%;
+        width: 30%;
         height: 60px;
     }
 
