@@ -56,7 +56,6 @@ export default {
         font-weight: bold;
         left: 50%;
         top: 15px;
-        color: "#fdffff";
         transform: translateX(-50%);
     }
 }
