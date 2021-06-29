@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Header from '@/components/header.vue'
+import Header from '@/components/Header'
 import RightPanel from '@/components/RightPanel'
 import Setting from '@/views/config/setting.vue'
 import Main from './main.vue'
