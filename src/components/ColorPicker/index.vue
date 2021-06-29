@@ -19,7 +19,7 @@ export default {
             defaultColorPicker: 'Twitter',
             colorPickerOptions: ['Material', 'Compact', 'Grayscale', 'Swatches', 'Slider', 'Sketch', 'Chrome', 'Photoshop', 'Twitter'],
             colors: {
-                hex: '#194d33e6',
+                hex: '#030409e6',
                 hsl: {
                     h: 150,
                     s: 0.5,
@@ -46,6 +46,10 @@ export default {
         colors: {
             handler: function(value) {
                 console.log(value)
+                this.$store.dispatch('setting/changeSetting', {
+                    key: 'bgColor',
+                    value: value.hex
+                })
             },
             deep: true
         }
@@ -58,9 +62,9 @@ export default {
 }
 </script>
   
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
 .color-picker {
-    display: flex;
+    // display: flex;
 }
 </style>
   
