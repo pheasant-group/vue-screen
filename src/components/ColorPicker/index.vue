@@ -3,7 +3,7 @@
         <el-select v-model="defaultColorPicker" placeholder="请选择颜色选择器样式">
             <el-option v-for="item in colorPickerOptions" :key="item" :label="item" :value="item"></el-option>
         </el-select>
-        <component v-bind:is="defaultColorPicker" @ok="onOk" v-model="colors"></component>
+        <component v-bind:is="defaultColorPicker" v-model="colors" @input="updateValue"></component>
     </div>
 </template>
   
@@ -16,7 +16,7 @@ export default {
     },
     data() {
         return {
-            defaultColorPicker: 'Material',
+            defaultColorPicker: 'Twitter',
             colorPickerOptions: ['Material', 'Compact', 'Grayscale', 'Swatches', 'Slider', 'Sketch', 'Chrome', 'Photoshop', 'Twitter'],
             colors: {
                 hex: '#194d33e6',
@@ -42,14 +42,25 @@ export default {
             },
         }
     },
+    watch: {
+        colors: {
+            handler: function(value) {
+                console.log(value)
+            },
+            deep: true
+        }
+    },
     methods: {
-        onOk() {
-            console.log(this.colors)
+        updateValue(value) {
+            this.colors = value
         }
     }
 }
 </script>
   
-  <style>
+  <style lang="scss" scoped>
+.color-picker {
+    display: flex;
+}
 </style>
   
