@@ -14,11 +14,6 @@ export default {
             type: String,
             default: 'dv-border-box-8'
         }
-    },
-    data() {
-        return {
-
-        }
     }
 }
 </script>

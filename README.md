@@ -2,14 +2,6 @@
 
 利用 datav,charts 封装的可视化大屏快速搭建模板
 
-## Project setup
-
-```shell
-yarn install
-```
-
-### Compiles and hot-reloads for development
-
-```shell
-yarn serve
-```
+| 名称      | 地址                                   |
+| --------- | -------------------------------------- |
+| vue-color | <https://github.com/xiaokaike/vue-color> |

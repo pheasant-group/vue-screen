@@ -1,6 +1,6 @@
 <template>
     <div class="top-header">
-        <dv-decoration-8 class="header-left-decoration" />
+        <component v-bind:is="headerLeft" class="header-left-decoration"></component>
         <dv-decoration-5 class="header-center-decoration" />
         <dv-decoration-8 class="header-right-decoration" :reverse="true" />
         <div class="center-title">驻藏BD副食品筹措可视化大屏</div>
@@ -9,7 +9,13 @@
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    props: {
+        headerLeft: {
+            type: String,
+            default: 'dv-decoration-8'
+        }
+    }
 }
 </script>
 
@@ -21,6 +27,7 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
+    margin-bottom: 10px;
 
     .header-center-decoration {
         width: 40%;
@@ -40,6 +47,7 @@ export default {
         font-weight: bold;
         left: 50%;
         top: 15px;
+        color: "#fdffff";
         transform: translateX(-50%);
     }
 }
