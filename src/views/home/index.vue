@@ -12,10 +12,10 @@
 
 <script>
 import Header from '@/components/header.vue'
-import Main from '@/components/main.vue'
+import Main from './main.vue'
 import RightPanel from '@/components/RightPanel'
 import { mapGetters } from 'vuex'
-import Setting from '@/views/components/setting.vue'
+import Setting from '@/views/config/setting.vue'
 
 export default {
     name: 'Home',
@@ -38,5 +38,7 @@ export default {
     color: #fff;
     height: 100%;
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 </style>

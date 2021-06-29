@@ -37,7 +37,6 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
-    margin-bottom: 10px;
 
     .header-center-decoration {
         width: 40%;
