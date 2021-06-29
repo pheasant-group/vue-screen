@@ -4,5 +4,5 @@ module.exports = {
   title: "Vue2-datav-screen",
   bgColor: '#030409',
   fontColor: '#fff',
-  globalBorder: 'dv-border-box-8'
+  globalBorder: 'dv-border-box-12'
 };

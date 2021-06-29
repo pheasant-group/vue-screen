@@ -11,8 +11,7 @@ export default {
     name: 'Header',
     props: {
         border: {
-            type: String,
-            default: 'dv-border-box-8'
+            type: String
         }
     }
 }

@@ -58,7 +58,7 @@ export default {
     data() {
         return {
             title: '',
-            globalBorder: 'dv-border-box-8',
+            globalBorder: '',
             globalBorderOptions: Array.from({ length: 12 }, (item, index) => `dv-border-box-${index + 1}`)
         }
     },

@@ -1,10 +1,49 @@
 <template>
     <div class="main">
-        <Charts-border :border="setting.globalBorder" :option="option1" class="charts-border-item" />
-        <Charts-border :border="setting.globalBorder" :option="option2" class="charts-border-item" />
-        <Charts-border :border="setting.globalBorder" :option="option3" class="charts-border-item" />
-        <Charts-border :border="setting.globalBorder" :option="option4" class="charts-border-item" />
-        <Charts-border :border="setting.globalBorder" :option="option5" class="charts-border-item" />
+        <div class="main-top">
+            <div class="main-left">
+                <Charts-border
+                    :border="setting.globalBorder"
+                    :option="option1"
+                    class="charts-border-item"
+                />
+                <Charts-border
+                    :border="setting.globalBorder"
+                    :option="option2"
+                    class="charts-border-item"
+                />
+            </div>
+            <div class="main-center"></div>
+            <div class="main-right">
+                <Charts-border
+                    :border="setting.globalBorder"
+                    :option="option4"
+                    class="charts-border-item"
+                />
+                <Charts-border
+                    :border="setting.globalBorder"
+                    :option="option5"
+                    class="charts-border-item"
+                />
+            </div>
+        </div>
+        <div class="main-bottom">
+            <Charts-border
+                :border="setting.globalBorder"
+                :option="option3"
+                class="charts-border-item"
+            />
+            <Charts-border
+                :border="setting.globalBorder"
+                :option="option3"
+                class="charts-border-item"
+            />
+            <Charts-border
+                :border="setting.globalBorder"
+                :option="option3"
+                class="charts-border-item"
+            />
+        </div>
     </div>
 </template>
 
@@ -179,11 +218,25 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-    display: flex;
-    flex-wrap: wrap;
     .charts-border-item {
-        flex: 0 0 25%;
-        height: 30vh;
+        width: 100%;
+        height: calc((100vh - 100px) / 3);
+    }
+    .main-top {
+        display: flex;
+        justify-content: space-between;
+        .main-left,
+        .main-right {
+            flex: 1;
+        }
+        .main-center {
+            flex: 2;
+        }
+    }
+    .main-bottom {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 }
 </style>
