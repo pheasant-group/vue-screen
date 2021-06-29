@@ -3,7 +3,7 @@
         <dv-full-screen-container>
             <Header :title="setting.title" />
             <Main />
-            <right-panel v-if="setting.showSetting">
+            <right-panel v-if="setting.showSetting && $route.query.config">
                 <Setting />
             </right-panel>
         </dv-full-screen-container>
@@ -29,16 +29,13 @@ export default {
         ...mapGetters([
             'setting'
         ])
-    },
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .home {
-    color: #fff;
     height: 100%;
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
 }
 </style>
