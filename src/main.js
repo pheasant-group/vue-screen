@@ -5,13 +5,15 @@ import store from "./store";
 import dataV from "@jiaminghi/data-view";
 import "@/style/common.scss";
 import "@/config/dv-charts.js";
-import { ColorPicker,Input } from "element-ui";
+import { ColorPicker, Input, Select, Option } from "element-ui";
 
 Vue.config.productionTip = false;
 
 Vue.use(dataV);
 Vue.use(ColorPicker);
 Vue.use(Input);
+Vue.use(Select);
+Vue.use(Option);
 
 new Vue({
   render: (h) => h(App),

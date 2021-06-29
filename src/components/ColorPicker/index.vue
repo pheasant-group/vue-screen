@@ -97,7 +97,7 @@ export default {
 <style>
 .theme-message,
 .theme-picker-dropdown {
-    z-index: 99999 !important;
+    /* z-index: 99999 !important; */
 }
 
 .theme-picker .el-color-picker__trigger {

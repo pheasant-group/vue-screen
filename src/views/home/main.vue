@@ -1,23 +1,30 @@
 <template>
     <div class="main">
-        <Charts-border border="dv-border-box-1" :option="option1" class="charts-border-item" />
-        <Charts-border border="dv-border-box-2" :option="option2" class="charts-border-item" />
-        <Charts-border border="dv-border-box-3" :option="option3" class="charts-border-item" />
-        <Charts-border border="dv-border-box-4" :option="option4" class="charts-border-item" />
-        <Charts-border border="dv-border-box-5" :option="option5" class="charts-border-item" />
+        <Charts-border :border="setting.globalBorder" :option="option1" class="charts-border-item" />
+        <Charts-border :border="setting.globalBorder" :option="option2" class="charts-border-item" />
+        <Charts-border :border="setting.globalBorder" :option="option3" class="charts-border-item" />
+        <Charts-border :border="setting.globalBorder" :option="option4" class="charts-border-item" />
+        <Charts-border :border="setting.globalBorder" :option="option5" class="charts-border-item" />
     </div>
 </template>
 
 <script>
-import ChartsBorder from '@/components/charts-border.vue'
+import ChartsBorder from '@/components/ChartsBorder'
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'Header',
     components: {
         ChartsBorder
     },
+    computed: {
+        ...mapGetters([
+            'setting'
+        ])
+    },
     data() {
         return {
+            globalBorder: 'dv-border-box-8',
             option1: {
                 title: {
                     text: '周销售额趋势'
@@ -176,7 +183,7 @@ export default {
     flex-wrap: wrap;
     .charts-border-item {
         flex: 0 0 25%;
-        height: 50vh;
+        height: 30vh;
     }
 }
 </style>

@@ -28,6 +28,21 @@
                     @change="value => changeSetting('fontColor', value)"
                 ></Color-picker>
             </div>
+            <div class="drawer-item">
+                <span>全局边框</span>
+                <el-select
+                    v-model="globalBorder"
+                    placeholder="请选择"
+                    @change="value => changeSetting('globalBorder', value)"
+                >
+                    <el-option
+                        v-for="item in globalBorderOptions"
+                        :key="item"
+                        :label="item"
+                        :value="item"
+                    ></el-option>
+                </el-select>
+            </div>
         </div>
     </div>
 </template>
@@ -42,7 +57,9 @@ export default {
     },
     data() {
         return {
-            title: ''
+            title: '',
+            globalBorder: 'dv-border-box-8',
+            globalBorderOptions: Array.from({ length: 12 }, (item, index) => `dv-border-box-${index + 1}`)
         }
     },
     computed: {

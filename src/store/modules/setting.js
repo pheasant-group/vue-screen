@@ -1,10 +1,17 @@
-import { title, bgColor, showSetting, fontColor } from "@/setting";
+import {
+  title,
+  bgColor,
+  showSetting,
+  fontColor,
+  globalBorder,
+} from "@/setting";
 
 const state = {
   showSetting,
   title,
   bgColor,
   fontColor,
+  globalBorder,
 };
 
 const mutations = {

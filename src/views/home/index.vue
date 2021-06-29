@@ -12,10 +12,10 @@
 
 <script>
 import Header from '@/components/header.vue'
-import Main from './main.vue'
 import RightPanel from '@/components/RightPanel'
-import { mapGetters } from 'vuex'
 import Setting from '@/views/config/setting.vue'
+import Main from './main.vue'
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'Home',
