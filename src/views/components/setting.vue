@@ -4,7 +4,11 @@
             <h3 class="drawer-title">设置</h3>
             <div class="drawer-item">
                 <span>背景颜色</span>
-                <Color-picker></Color-picker>
+                <Color-picker
+                    style="float: right;height: 26px;margin: -3px 8px 0 0;"
+                    :color="setting.bgcolor"
+                    @change="changeBgColor"
+                ></Color-picker>
             </div>
         </div>
     </div>
@@ -19,12 +23,21 @@ export default {
         ColorPicker
     },
     data() {
-        return {}
+        return {
+        }
     },
     computed: {
         ...mapGetters([
             'setting'
         ])
+    },
+    methods: {
+        changeBgColor(value) {
+            this.$store.dispatch('setting/changeSetting', {
+                key: 'bgColor',
+                value: value
+            })
+        }
     }
 }
 </script>
