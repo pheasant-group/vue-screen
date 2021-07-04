@@ -9,6 +9,8 @@ URL 后面加参数?config=1 开启配置模式
 - 字体颜色
 - 边框
 
+  ![20210705010323](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210705010323.png)
+
 ## 参考链接
 
 - <https://github.com/DataV-Team/Datav>
