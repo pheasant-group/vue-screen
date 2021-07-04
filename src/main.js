@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import dataV from "@jiaminghi/data-view";
 import "@/style/common.scss";
-import "@/config/dv-charts.js";
+// import "@/config/dv-charts.js";
 import { ColorPicker, Input, Select, Option } from "element-ui";
 
 Vue.config.productionTip = false;
