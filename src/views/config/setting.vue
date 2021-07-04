@@ -126,6 +126,8 @@ export default {
         changeSetting(key, value) {
             if (key === 'chartscolor') {
                 value = [value]
+            } else if (key.indexOf("charts") !== -1) {
+                value = JSON.parse(value);
             }
             console.log(key, value)
             this.$store.dispatch('setting/changeSetting', { key, value })
