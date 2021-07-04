@@ -1,7 +1,7 @@
 <template>
     <div class="drawer-container">
         <div>
-            <h3 class="drawer-title">设置</h3>
+            <h3 class="drawer-title">设置(立即生效)</h3>
             <div class="drawer-item">
                 <span>标题:</span>
                 <el-input
@@ -45,7 +45,7 @@
                     ></el-option>
                 </el-select>
             </div>
-            <h3 class="drawer-title">图表设置</h3>
+            <h3 class="drawer-title">图表设置(刷新生效)</h3>
             <div class="charts-item">
                 <div class="drawer-item">
                     <span>color:</span>
@@ -73,6 +73,9 @@
                 </div>
                 <span class="description">title用来显示图表的标题，你可以配置该项来设置其位置和样式</span>
             </div>
+
+            <el-button type="primary" @click.native="reload" size="mini">刷新生效</el-button>
+            <el-button type="primary" @click.native="reload" size="mini">上传后台</el-button>
         </div>
     </div>
 </template>
@@ -97,7 +100,7 @@ export default {
             chartslegend: {},
             chartsxAxis: {},
             chartsyAxis: {},
-            chartsgid: {},
+            chartsgrid: {},
             chartsradarAxis: {},
             chartsline: {},
             chartsbar: {},
@@ -116,12 +119,19 @@ export default {
         this.bgColor = this.setting.bgColor
         this.fontColor = this.setting.fontColor
         this.globalBorder = this.setting.globalBorder
-        this.chartscolor = this.setting.chartscolor
+        this.chartscolor = Array.isArray(this.setting.chartscolor) ? this.setting.chartscolor : [this.setting.chartscolor]
         this.chartstitle = JSON.stringify(this.setting.chartstitle, null, 4)
     },
     methods: {
         changeSetting(key, value) {
+            if (key === 'chartscolor') {
+                value = [value]
+            }
+            console.log(key, value)
             this.$store.dispatch('setting/changeSetting', { key, value })
+        },
+        reload() {
+            location.reload()
         }
     }
 }

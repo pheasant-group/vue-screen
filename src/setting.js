@@ -29,7 +29,7 @@ module.exports = {
   chartslegend: {},
   chartsxAxis: {},
   chartsyAxis: {},
-  chartsgid: {},
+  chartsgrid: {},
   chartsradarAxis: {},
   chartsline: {},
   chartsbar: {},

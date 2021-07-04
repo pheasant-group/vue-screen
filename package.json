@@ -11,9 +11,11 @@
     "@jiaminghi/data-view": "^2.10.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.2",
+    "js-cookie": "^2.2.1",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
