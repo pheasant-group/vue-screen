@@ -1,4 +1,4 @@
 const getters = {
-    setting: state => state.setting
-  }
-  export default getters
+  setting: (state) => state.setting,
+};
+export default getters;
