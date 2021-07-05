@@ -89,7 +89,6 @@
                     <span>xAxis:</span>
                     <el-input
                         v-model="chartsxAxis"
-                        placeholder="请输入颜色"
                         type="textarea"
                         autosize
                         @change="value => changeSetting('chartsxAxis', value)"
@@ -102,7 +101,6 @@
                     <span>yAxis:</span>
                     <el-input
                         v-model="chartsyAxis"
-                        placeholder="请输入颜色"
                         type="textarea"
                         autosize
                         @change="value => changeSetting('chartsyAxis', value)"
@@ -114,11 +112,10 @@
                 <div class="drawer-item">
                     <span>chartsgrid:</span>
                     <el-input
-                        v-model="chartsxAxis"
-                        placeholder="请输入颜色"
+                        v-model="chartsgrid"
                         type="textarea"
                         autosize
-                        @change="value => changeSetting('chartsxAxis', value)"
+                        @change="value => changeSetting('chartsgrid', value)"
                     ></el-input>
                 </div>
                 <span class="description">grid是配合坐标系工作的，通过配置它，你可以设置坐标系的宽高大小</span>
