@@ -143,7 +143,7 @@ export default {
             bgcolor: '',
             fontColor: '',
             globalBorder: '',
-            globalBorderOptions: Array.from({ length: 12 }, (item, index) => `dv-border-box-${index + 1}`),
+            globalBorderOptions: Array.from({ length: 13 }, (item, index) => `dv-border-box-${index + 1}`),
             chartscolor: '',
             chartstitle: {},
             chartslegend: {},
