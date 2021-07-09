@@ -1,6 +1,6 @@
-# vue-datav-screen
+# vue-screen
 
-利用 datav,charts 封装的可视化大屏快速搭建模板
+利用 vue,charts 封装的可视化大屏快速搭建模板
 
 URL 后面加参数?config=1 开启配置模式
 

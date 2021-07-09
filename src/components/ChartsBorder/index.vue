@@ -1,7 +1,7 @@
 <template>
     <div class="charts-border">
         <component v-bind:is="border">
-            <dv-charts v-bind="$attrs" />
+            <div />
         </component>
     </div>
 </template>
