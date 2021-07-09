@@ -6,6 +6,7 @@
     :row-height="rowHeight"
     :use-css-transforms="true"
     :vertical-compact="false"
+    @layout-ready="layoutReadyEvent"
   >
     <grid-item
       v-for="(item, index) in layout"
@@ -16,10 +17,9 @@
       :h="item.h"
       :i="item.i"
     >
-      <ChartsBorder
-        v-if="index === 1"
-        class="grid-item"
-      />
+      <template v-if="layoutMounted">
+        <ChartsBorder v-if="index === 1" class="grid-item" />
+      </template>
     </grid-item>
   </grid-layout>
 </template>
@@ -37,6 +37,7 @@ export default {
   },
   data() {
     return {
+      layoutMounted: false,
       $_resizeHandler: null,
       rowHeight: window.innerHeight / 100,
       layout: [
@@ -50,7 +51,7 @@ export default {
         { x: 75, y: 10, w: 25, h: 30, i: "7" },
         { x: 75, y: 40, w: 25, h: 30, i: "8" },
         { x: 75, y: 70, w: 25, h: 30, i: "9" },
-      ]
+      ],
     };
   },
   mounted() {
@@ -66,6 +67,10 @@ export default {
     destroyListener() {
       window.removeEventListener("resize", this.$_resizeHandler);
       this.$_resizeHandler = null;
+    },
+    // layout渲染好之后才能渲染里面的内容，保证echarts在渲染之前就可以拿到真实的宽高
+    layoutReadyEvent() {
+      this.layoutMounted = true;
     },
   },
 };

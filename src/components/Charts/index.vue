@@ -49,10 +49,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.charts {
-  width: 500px;
-  height: 500px;
-}
-</style>
