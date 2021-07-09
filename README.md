@@ -13,5 +13,4 @@ URL 后面加参数?config=1 开启配置模式
 
 ## 参考链接
 
-- <https://github.com/DataV-Team/Datav>
-- <https://github.com/DataV-Team/Charts>
+- <https://jbaysolutions.github.io/vue-grid-layout/zh>
