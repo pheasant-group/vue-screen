@@ -16,7 +16,10 @@
       :h="item.h"
       :i="item.i"
     >
-      <Charts-border v-if="index === 0" :option="option1" class="charts-border-item" />
+      <ChartsBorder
+        v-if="index === 1"
+        class="grid-item"
+      />
     </grid-item>
   </grid-layout>
 </template>
@@ -47,30 +50,7 @@ export default {
         { x: 75, y: 10, w: 25, h: 30, i: "7" },
         { x: 75, y: 40, w: 25, h: 30, i: "8" },
         { x: 75, y: 70, w: 25, h: 30, i: "9" },
-      ],
-      option1: {
-        title: {
-          text: "周销售额趋势",
-        },
-        xAxis: {
-          name: "第二周",
-          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-        },
-        yAxis: {
-          name: "销售额",
-          data: "value",
-        },
-        series: [
-          {
-            data: [1200, 2230, 1900, 2100, 3500, 4200, 3985],
-            type: "line",
-            smooth: true,
-            lineArea: {
-              show: true,
-            },
-          },
-        ],
-      },
+      ]
     };
   },
   mounted() {
@@ -97,6 +77,9 @@ export default {
   .vue-grid-item:not(.vue-grid-placeholder) {
     /* border: 1px solid black; */
     box-sizing: border-box;
+  }
+  .vue-grid-item > .vue-resizable-handle {
+    display: none;
   }
 }
 </style>

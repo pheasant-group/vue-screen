@@ -1,26 +1,17 @@
 <template>
-    <div class="charts-border">
-        <component v-bind:is="border">
-            <div />
-        </component>
-    </div>
+  <Border v-bind="$attrs">
+    <Charts v-bind="$attrs"></Charts>
+  </Border>
 </template>
 
 <script>
+import Border from "@/components/Border";
+import Charts from "@/components/Charts";
 export default {
-    name: 'Header',
-    props: {
-        border: {
-            type: String,
-            default: 'dv-border-box-12'
-        }
-    }
-}
+  name: "ChartsBorder",
+  components: {
+    Border,
+    Charts,
+  },
+};
 </script>
-
-<style lang="scss" scoped>
-.charts-border {
-    height: 100%;
-    width: 100%;
-}
-</style>
