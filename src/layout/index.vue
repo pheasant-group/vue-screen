@@ -18,7 +18,7 @@
       :i="item.i"
     >
       <template v-if="layoutMounted">
-        <ChartsBorder v-if="index === 1" class="grid-item" />
+        <router-view :index="index"></router-view>
       </template>
     </grid-item>
   </grid-layout>
@@ -26,14 +26,12 @@
 
 <script>
 import { GridLayout, GridItem } from "vue-grid-layout";
-import ChartsBorder from "@/components/ChartsBorder";
 import { debounce } from "@/utils";
 
 export default {
   components: {
     GridLayout,
     GridItem,
-    ChartsBorder,
   },
   data() {
     return {

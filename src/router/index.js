@@ -4,14 +4,18 @@ import Router from "vue-router";
 Vue.use(Router);
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "home",
-  //   component: () => import("@/views/home/index.vue"),
-  // }
   {
     path: '/',
-    component: () => import('@/layout/index.vue')
+    name: 'layout',
+    redirect: '/home',
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'Home',
+        component: () => import('@/views/home/index.vue')
+      }
+    ]
   }
 ];
 

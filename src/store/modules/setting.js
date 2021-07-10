@@ -3,19 +3,7 @@ import {
   bgColor,
   showSetting,
   fontColor,
-  globalBorder,
-  chartscolor,
-  chartstitle,
-  chartslegend,
-  chartsxAxis,
-  chartsyAxis,
-  chartsgrid,
-  chartsradarAxis,
-  chartsline,
-  chartsbar,
-  chartspie,
-  chartsradar,
-  chartsgauge,
+  theme,
 } from "@/setting";
 
 const state = {
@@ -23,19 +11,7 @@ const state = {
   title,
   bgColor,
   fontColor,
-  globalBorder,
-  chartscolor,
-  chartstitle,
-  chartslegend,
-  chartsxAxis,
-  chartsyAxis,
-  chartsgrid,
-  chartsradarAxis,
-  chartsline,
-  chartsbar,
-  chartspie,
-  chartsradar,
-  chartsgauge,
+  theme
 };
 
 const mutations = {

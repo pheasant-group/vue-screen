@@ -12,6 +12,10 @@ import { uuid } from "@/utils";
 export default {
   name: "Charts",
   props: {
+    theme: {
+      type: String,
+      default: "dark",
+    },
     option: {
       type: Object,
       default: () => {
@@ -44,7 +48,7 @@ export default {
   mounted() {
     this.width = this.$refs[this.ref].clientWidth;
     this.height = this.$refs[this.ref].clientHeight;
-    this.charts = this.$echarts.init(this.$refs[this.ref]);
+    this.charts = this.$echarts.init(this.$refs[this.ref], this.theme);
     this.charts.setOption(this.option);
   },
 };
