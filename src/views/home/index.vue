@@ -45,7 +45,6 @@ export default {
   },
   data() {
     return {
-      settingShow: false,
       option1: {
         xAxis: {
           type: "category",
@@ -486,13 +485,6 @@ export default {
         ],
       },
     };
-  },
-  created() {
-    this.settingShow = Boolean(this.$route.query.config);
-    this.$store.dispatch("setting/changeSetting", {
-      key: "settingShow",
-      value: this.settingShow,
-    });
   },
 };
 </script>

@@ -165,6 +165,7 @@ export default {
         { length: 13 },
         (item, index) => `dv-border-box-${index + 1}`
       ),
+      index: 0
     };
   },
   computed: {
@@ -179,31 +180,30 @@ export default {
   },
   methods: {
     changeSetting(key, value) {
-      if (key === "theme") {
-        this.$store.dispatch("setting/changeSetting", { key, value });
-        if (value === "light") {
-          this.$store.dispatch("setting/changeSetting", {
-            key: "bgColor",
-            value: "#fff",
-          });
-          this.$store.dispatch("setting/changeSetting", {
-            key: "fontColor",
-            value: "#000",
-          });
-        } else {
-          this.$store.dispatch("setting/changeSetting", {
-            key: "bgColor",
-            value: "#000",
-          });
-          this.$store.dispatch("setting/changeSetting", {
-            key: "fontColor",
-            value: "#fff",
-          });
-        }
-        return;
-      } else if (key.indexOf("charts") !== -1) {
-        value = JSON.parse(value);
-      }
+      // if (key === "theme") {
+      //   this.$store.dispatch("setting/changeSetting", { key, value });
+      //   if (value === "light") {
+      //     this.$store.dispatch("setting/changeSetting", {
+      //       key: "bgColor",
+      //       value: "#fff",
+      //     });
+      //     this.$store.dispatch("setting/changeSetting", {
+      //       key: "fontColor",
+      //       value: "#000",
+      //     });
+      //   } else {
+      //     this.$store.dispatch("setting/changeSetting", {
+      //       key: "bgColor",
+      //       value: "#000",
+      //     });
+      //     this.$store.dispatch("setting/changeSetting", {
+      //       key: "fontColor",
+      //       value: "#fff",
+      //     });
+      //   }
+      //   return;
+      // }
+      console.log(value);
       this.$store.dispatch("setting/changeSetting", { key, value });
     },
     clear() {

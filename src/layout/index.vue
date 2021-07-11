@@ -10,6 +10,7 @@
     :is-resizable="setting.settingShow"
     @layout-ready="layoutReadyEvent"
     @layout-updated="layoutUpdatedEvent"
+    :style="{ backgroundColor: setting.bgColor }"
   >
     <grid-item
       v-for="(item, index) in layout"
@@ -53,6 +54,11 @@ export default {
   },
   created() {
     this.layout = this.setting.layout;
+    this.settingShow = Boolean(this.$route.query.config);
+    this.$store.dispatch("setting/changeSetting", {
+      key: "settingShow",
+      value: this.settingShow,
+    });
   },
   mounted() {
     this.initListener();

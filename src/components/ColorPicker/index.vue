@@ -13,6 +13,7 @@
         '#6959CD',
         '#f5222d',
       ]"
+      @change="change"
       class="theme-picker"
       popper-class="theme-picker-dropdown"
     />
@@ -25,7 +26,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: '#000'
+      default: "#000",
     },
   },
   data() {
@@ -36,12 +37,9 @@ export default {
   created() {
     this.colors = this.color;
   },
-  watch: {
-    colors: {
-      handler: function(value) {
-        this.$emit("change", value);
-      },
-      deep: true,
+  methods: {
+    change() {
+      this.$emit("change", this.colors);
     },
   },
 };
