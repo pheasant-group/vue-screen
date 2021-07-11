@@ -62,7 +62,7 @@ export default {
   methods: {
     initListener() {
       this.$_resizeHandler = debounce(() => {
-        this.charts.resize()
+        this.charts.resize();
       }, 100);
       window.addEventListener("resize", this.$_resizeHandler);
     },
@@ -70,6 +70,9 @@ export default {
       window.removeEventListener("resize", this.$_resizeHandler);
       this.$_resizeHandler = null;
     },
+  },
+  destroyed() {
+    this.destroyListener();
   },
 };
 </script>

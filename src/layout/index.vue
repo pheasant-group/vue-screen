@@ -9,6 +9,7 @@
     :is-draggable="setting.settingShow"
     :is-resizable="setting.settingShow"
     @layout-ready="layoutReadyEvent"
+    @layout-updated="layoutUpdatedEvent"
   >
     <grid-item
       v-for="(item, index) in layout"
@@ -78,6 +79,13 @@ export default {
     // 调整大小后的事件
     resizedEvent() {
       this.layoutContentShow = true;
+    },
+    // 调整后保存
+    layoutUpdatedEvent() {
+      this.$store.dispatch("setting/changeSetting", {
+        key: "layout",
+        value: this.layout,
+      });
     },
   },
 };
