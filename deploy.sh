@@ -13,10 +13,10 @@ cd dist
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
-  githubUrl=git@github.com:wu529778790/wu529778790.github.io.git
+  githubUrl=git@github.com:wu529778790/vue-screen
 else
   msg='来自github actions的自动部署'
-  githubUrl=https://wu529778790:${GITHUB_TOKEN}@github.com/wu529778790/wu529778790.github.io.git
+  githubUrl=https://wu529778790:${GITHUB_TOKEN}@github.com/wu529778790/vue-screen
   git config --global user.name "wu529778790"
   git config --global user.email "529778790@qq.com"
 fi
