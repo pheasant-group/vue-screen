@@ -16,8 +16,10 @@
       :w="item.w"
       :h="item.h"
       :i="item.i"
+      @resize="resizeEvent"
+      @resized="resizedEvent"
     >
-      <template v-if="layoutMounted">
+      <template v-if="layoutContentShow">
         <router-view :index="index"></router-view>
       </template>
     </grid-item>
@@ -25,6 +27,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { GridLayout, GridItem } from "vue-grid-layout";
 import { debounce } from "@/utils";
 
@@ -33,24 +36,19 @@ export default {
     GridLayout,
     GridItem,
   },
+  computed: {
+    ...mapGetters(["setting"]),
+  },
   data() {
     return {
-      layoutMounted: false,
+      layoutContentShow: false, // 控制布局内的容器的渲染
       $_resizeHandler: null,
       rowHeight: window.innerHeight / 100,
-      layout: [
-        { x: 0, y: 0, w: 100, h: 10, i: "0" },
-        { x: 0, y: 10, w: 25, h: 30, i: "1" },
-        { x: 0, y: 40, w: 25, h: 30, i: "2" },
-        { x: 0, y: 70, w: 25, h: 30, i: "3" },
-        { x: 25, y: 10, w: 50, h: 60, i: "4" },
-        // { x: 25, y: 40, w: 25, h: 30, i: "5" },
-        { x: 25, y: 70, w: 50, h: 30, i: "6" },
-        { x: 75, y: 10, w: 25, h: 30, i: "7" },
-        { x: 75, y: 40, w: 25, h: 30, i: "8" },
-        { x: 75, y: 70, w: 25, h: 30, i: "9" },
-      ],
+      layout: [],
     };
+  },
+  created() {
+    this.layout = this.setting.layout;
   },
   mounted() {
     this.initListener();
@@ -68,7 +66,15 @@ export default {
     },
     // layout渲染好之后才能渲染里面的内容，保证echarts在渲染之前就可以拿到真实的宽高
     layoutReadyEvent() {
-      this.layoutMounted = true;
+      this.layoutContentShow = true;
+    },
+    // 调整大小之前
+    resizeEvent() {
+      this.layoutContentShow = false;
+    },
+    // 调整大小后的事件
+    resizedEvent() {
+      this.layoutContentShow = true;
     },
   },
 };
@@ -78,11 +84,14 @@ export default {
 .vue-grid-layout {
   overflow: hidden;
   .vue-grid-item:not(.vue-grid-placeholder) {
-    /* border: 1px solid black; */
+    border: 1px solid red;
     box-sizing: border-box;
   }
-  .vue-grid-item > .vue-resizable-handle {
-    display: none;
+  .vue-grid-item {
+    touch-action: none;
+    .vue-resizable-handle {
+      display: none;
+    }
   }
 }
 </style>

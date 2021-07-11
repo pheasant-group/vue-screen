@@ -1,6 +1,8 @@
 <template>
   <div class="top-header">
-    <div class="title" :style="{ color: fontColor }">{{ title }}</div>
+    <div class="title" :style="{ color: fontColor, backgroundColor: bgColor }">
+      {{ title }}
+    </div>
   </div>
 </template>
 
@@ -16,6 +18,10 @@ export default {
       type: String,
       default: "#fff",
     },
+    bgColor: {
+      type: String,
+      default: "#100c2a",
+    },
   },
 };
 </script>
@@ -29,7 +35,7 @@ export default {
   justify-content: center;
   align-items: center;
   .title {
-      font-size: 30px;
+    font-size: 30px;
   }
 }
 </style>

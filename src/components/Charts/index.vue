@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { uuid } from "@/utils";
+import { uuid, debounce } from "@/utils";
 
 export default {
   name: "Charts",
@@ -43,13 +43,33 @@ export default {
       width: "100%",
       height: "100%",
       charts: null,
+      $_resizeHandler: null,
     };
+  },
+  watch: {
+    theme(value) {
+      this.charts = this.$echarts.init(this.$refs[this.ref], value);
+    },
   },
   mounted() {
     this.width = this.$refs[this.ref].clientWidth;
     this.height = this.$refs[this.ref].clientHeight;
     this.charts = this.$echarts.init(this.$refs[this.ref], this.theme);
     this.charts.setOption(this.option);
+    // 监听window的resize
+    this.initListener();
+  },
+  methods: {
+    initListener() {
+      this.$_resizeHandler = debounce(() => {
+        this.charts.resize()
+      }, 100);
+      window.addEventListener("resize", this.$_resizeHandler);
+    },
+    destroyListener() {
+      window.removeEventListener("resize", this.$_resizeHandler);
+      this.$_resizeHandler = null;
+    },
   },
 };
 </script>

@@ -46,21 +46,22 @@
         </el-select>
       </div>
       <h3 class="drawer-title">图表设置(刷新生效)</h3>
-      <div class="charts-item">
-        <div class="drawer-item">
-          <span>color:</span>
-          <Color-picker
-            style="float: right;height: 26px;margin: -3px 8px 0 0;"
-            :color="chartscolor[0]"
-            key="fontColor"
-            @change="(value) => changeSetting('chartscolor', value)"
-          ></Color-picker>
-        </div>
-        <span class="description"
-          >color属性用来配置图表颜色，配置的颜色将自动覆盖默认配色，颜色支持hex|rgb|rgba，不支持如'red'等描述颜色。</span
+      <div class="drawer-item">
+        <span>echarts主题:</span>
+        <el-select
+          v-model="theme"
+          placeholder="请选择"
+          @change="(value) => changeSetting('theme', value)"
         >
+          <el-option
+            v-for="item in ['dark', 'light']"
+            :key="item"
+            :label="item"
+            :value="item"
+          ></el-option>
+        </el-select>
       </div>
-      <div class="charts-item">
+      <!-- <div class="charts-item">
         <div class="drawer-item">
           <span>title:</span>
           <el-input
@@ -129,7 +130,7 @@
         <span class="description"
           >grid是配合坐标系工作的，通过配置它，你可以设置坐标系的宽高大小</span
         >
-      </div>
+      </div> -->
       <div class="footer">
         <el-button type="primary" @click.native="clear" size="mini"
           >恢复默认</el-button
@@ -158,23 +159,12 @@ export default {
       title: "",
       bgcolor: "",
       fontColor: "",
+      theme: "dark",
       globalBorder: "",
       globalBorderOptions: Array.from(
         { length: 13 },
         (item, index) => `dv-border-box-${index + 1}`
       ),
-      chartscolor: "",
-      chartstitle: {},
-      chartslegend: {},
-      chartsxAxis: {},
-      chartsyAxis: {},
-      chartsgrid: {},
-      chartsradarAxis: {},
-      chartsline: {},
-      chartsbar: {},
-      chartspie: {},
-      chartsradar: {},
-      chartsgauge: {},
     };
   },
   computed: {
@@ -184,20 +174,33 @@ export default {
     this.title = this.setting.title;
     this.bgColor = this.setting.bgColor;
     this.fontColor = this.setting.fontColor;
+    this.theme = this.setting.theme;
     this.globalBorder = this.setting.globalBorder;
-    this.chartscolor = Array.isArray(this.setting.chartscolor)
-      ? this.setting.chartscolor
-      : [this.setting.chartscolor];
-    this.chartstitle = JSON.stringify(this.setting.chartstitle, null, 4);
-    this.chartslegend = JSON.stringify(this.setting.chartslegend, null, 4);
-    this.chartsxAxis = JSON.stringify(this.setting.chartsxAxis, null, 4);
-    this.chartsyAxis = JSON.stringify(this.setting.chartsyAxis, null, 4);
-    this.chartsgrid = JSON.stringify(this.setting.chartsgrid, null, 4);
   },
   methods: {
     changeSetting(key, value) {
-      if (key === "chartscolor") {
-        value = [value];
+      if (key === "theme") {
+        this.$store.dispatch("setting/changeSetting", { key, value });
+        if (value === "light") {
+          this.$store.dispatch("setting/changeSetting", {
+            key: "bgColor",
+            value: "#fff",
+          });
+          this.$store.dispatch("setting/changeSetting", {
+            key: "fontColor",
+            value: "#000",
+          });
+        } else {
+          this.$store.dispatch("setting/changeSetting", {
+            key: "bgColor",
+            value: "#000",
+          });
+          this.$store.dispatch("setting/changeSetting", {
+            key: "fontColor",
+            value: "#fff",
+          });
+        }
+        return;
       } else if (key.indexOf("charts") !== -1) {
         value = JSON.parse(value);
       }

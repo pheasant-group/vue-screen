@@ -1,16 +1,18 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ backgroundColor: setting.bgColor }">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'App',
-  components: {
-  }
-}
+  name: "App",
+  computed: {
+    ...mapGetters(["setting"]),
+  },
+};
 </script>
 
 <style>
