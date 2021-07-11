@@ -1,7 +1,7 @@
 <template>
   <div class="drawer-container">
     <div class="drawer-box">
-      <h3 class="drawer-title">设置(立即生效)</h3>
+      <h3 class="drawer-title">设置</h3>
       <div class="drawer-item">
         <span>标题:</span>
         <el-input
@@ -30,7 +30,7 @@
           @change="(value) => changeSetting('fontColor', value)"
         ></Color-picker>
       </div>
-      <div class="drawer-item">
+      <!-- <div class="drawer-item">
         <span>全局边框:</span>
         <el-select
           v-model="globalBorder"
@@ -44,8 +44,7 @@
             :value="item"
           ></el-option>
         </el-select>
-      </div>
-      <h3 class="drawer-title">图表设置(刷新生效)</h3>
+      </div> -->
       <div class="drawer-item">
         <span>echarts主题:</span>
         <el-select
@@ -180,30 +179,29 @@ export default {
   },
   methods: {
     changeSetting(key, value) {
-      // if (key === "theme") {
-      //   this.$store.dispatch("setting/changeSetting", { key, value });
-      //   if (value === "light") {
-      //     this.$store.dispatch("setting/changeSetting", {
-      //       key: "bgColor",
-      //       value: "#fff",
-      //     });
-      //     this.$store.dispatch("setting/changeSetting", {
-      //       key: "fontColor",
-      //       value: "#000",
-      //     });
-      //   } else {
-      //     this.$store.dispatch("setting/changeSetting", {
-      //       key: "bgColor",
-      //       value: "#000",
-      //     });
-      //     this.$store.dispatch("setting/changeSetting", {
-      //       key: "fontColor",
-      //       value: "#fff",
-      //     });
-      //   }
-      //   return;
-      // }
-      console.log(value);
+      if (key === "theme") {
+        this.$store.dispatch("setting/changeSetting", { key, value });
+        if (value === "light") {
+          this.$store.dispatch("setting/changeSetting", {
+            key: "bgColor",
+            value: "#fff",
+          });
+          this.$store.dispatch("setting/changeSetting", {
+            key: "fontColor",
+            value: "#000",
+          });
+        } else {
+          this.$store.dispatch("setting/changeSetting", {
+            key: "bgColor",
+            value: "#000",
+          });
+          this.$store.dispatch("setting/changeSetting", {
+            key: "fontColor",
+            value: "#fff",
+          });
+        }
+        return;
+      }
       this.$store.dispatch("setting/changeSetting", { key, value });
     },
     clear() {

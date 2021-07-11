@@ -1,7 +1,7 @@
 <template>
   <div
     :ref="ref"
-    class="charts"
+    class="chart"
     :style="{ width: width, height: height }"
   ></div>
 </template>
@@ -42,27 +42,30 @@ export default {
       ref: uuid(),
       width: "100%",
       height: "100%",
-      charts: null,
+      chart: null,
       $_resizeHandler: null,
     };
   },
   watch: {
     theme(value) {
-      this.charts = this.$echarts.init(this.$refs[this.ref], value);
+      this.chart.showLoading();
+      this.chart.dispose();
+      this.chart = this.$echarts.init(this.$refs[this.ref], value);
+    this.chart.setOption(this.option);
     },
   },
   mounted() {
     this.width = this.$refs[this.ref].clientWidth;
     this.height = this.$refs[this.ref].clientHeight;
-    this.charts = this.$echarts.init(this.$refs[this.ref], this.theme);
-    this.charts.setOption(this.option);
+    this.chart = this.$echarts.init(this.$refs[this.ref], this.theme);
+    this.chart.setOption(this.option);
     // 监听window的resize
     this.initListener();
   },
   methods: {
     initListener() {
       this.$_resizeHandler = debounce(() => {
-        this.charts.resize();
+        this.chart.resize();
       }, 100);
       window.addEventListener("resize", this.$_resizeHandler);
     },
