@@ -1,6 +1,6 @@
 module.exports = {
   // 设置面板是否显示
-  showSetting: true,
+  settingShow: false,
   layout: [
     { x: 0, y: 0, w: 100, h: 10, i: "0" },
     { x: 0, y: 10, w: 25, h: 30, i: "1" },

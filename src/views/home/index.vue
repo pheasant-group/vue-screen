@@ -14,7 +14,7 @@
     <ChartsBorder v-if="index === 6" :option="option6" :theme="setting.theme" />
     <ChartsBorder v-if="index === 7" :option="option7" :theme="setting.theme" />
     <ChartsBorder v-if="index === 8" :option="option8" :theme="setting.theme" />
-    <right-panel v-if="setting.showSetting && $route.query.config">
+    <right-panel v-if="setting.settingShow">
       <Setting />
     </right-panel>
   </div>
@@ -45,6 +45,7 @@ export default {
   },
   data() {
     return {
+      settingShow: false,
       option1: {
         xAxis: {
           type: "category",
@@ -407,6 +408,13 @@ export default {
         ],
       },
     };
+  },
+  created() {
+    this.settingShow = Boolean(this.$route.query.config);
+    this.$store.dispatch("setting/changeSetting", {
+      key: "settingShow",
+      value: this.settingShow,
+    });
   },
 };
 </script>

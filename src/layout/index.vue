@@ -6,6 +6,8 @@
     :row-height="rowHeight"
     :use-css-transforms="true"
     :vertical-compact="false"
+    :is-draggable="setting.settingShow"
+    :is-resizable="setting.settingShow"
     @layout-ready="layoutReadyEvent"
   >
     <grid-item
@@ -18,6 +20,7 @@
       :i="item.i"
       @resize="resizeEvent"
       @resized="resizedEvent"
+      :class="{ 'border-resize': setting.settingShow }"
     >
       <template v-if="layoutContentShow">
         <router-view :index="index"></router-view>
@@ -83,15 +86,17 @@ export default {
 <style lang="scss" scoped>
 .vue-grid-layout {
   overflow: hidden;
-  .vue-grid-item:not(.vue-grid-placeholder) {
-    border: 1px solid red;
-    box-sizing: border-box;
-  }
   .vue-grid-item {
     touch-action: none;
     .vue-resizable-handle {
       display: none;
     }
+  }
+}
+::v-deep {
+  .border-resize {
+    border: 1px solid red;
+    box-sizing: border-box;
   }
 }
 </style>

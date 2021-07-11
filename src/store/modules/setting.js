@@ -1,5 +1,5 @@
 import {
-  showSetting,
+  settingShow,
   layout,
   title,
   bgColor,
@@ -8,7 +8,7 @@ import {
 } from "@/setting";
 
 const state = {
-  showSetting,
+  settingShow,
   layout,
   title,
   bgColor,
