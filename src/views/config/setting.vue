@@ -83,76 +83,6 @@
           ></el-option>
         </el-select>
       </div>
-      <!-- <div class="charts-item">
-        <div class="drawer-item">
-          <span>title:</span>
-          <el-input
-            v-model="chartstitle"
-            type="textarea"
-            autosize
-            @change="(value) => changeSetting('chartstitle', value)"
-          ></el-input>
-        </div>
-        <span class="description"
-          >title用来显示图表的标题，你可以配置该项来设置其位置和样式</span
-        >
-      </div>
-      <div class="charts-item">
-        <div class="drawer-item">
-          <span>legend:</span>
-          <el-input
-            v-model="chartslegend"
-            type="textarea"
-            autosize
-            @change="(value) => changeSetting('chartslegend', value)"
-          ></el-input>
-        </div>
-        <span class="description"
-          >legend为图表提供图例标签功能，它允许用户隐藏/显示series中的某个子图表</span
-        >
-      </div>
-      <div class="charts-item">
-        <div class="drawer-item">
-          <span>xAxis:</span>
-          <el-input
-            v-model="chartsxAxis"
-            type="textarea"
-            autosize
-            @change="(value) => changeSetting('chartsxAxis', value)"
-          ></el-input>
-        </div>
-        <span class="description"
-          >xAxis用来配置x坐标轴，它的值可以为对象，也可以为一个数组，为数组时即多个x坐标轴(至多2个)</span
-        >
-      </div>
-      <div class="charts-item">
-        <div class="drawer-item">
-          <span>yAxis:</span>
-          <el-input
-            v-model="chartsyAxis"
-            type="textarea"
-            autosize
-            @change="(value) => changeSetting('chartsyAxis', value)"
-          ></el-input>
-        </div>
-        <span class="description"
-          >yAxis用来配置y坐标轴，它的值可以为对象，也可以为一个数组，为数组时即多个y坐标轴(至多2个)</span
-        >
-      </div>
-      <div class="charts-item">
-        <div class="drawer-item">
-          <span>chartsgrid:</span>
-          <el-input
-            v-model="chartsgrid"
-            type="textarea"
-            autosize
-            @change="(value) => changeSetting('chartsgrid', value)"
-          ></el-input>
-        </div>
-        <span class="description"
-          >grid是配合坐标系工作的，通过配置它，你可以设置坐标系的宽高大小</span
-        >
-      </div> -->
       <div class="footer">
         <el-button type="primary" @click.native="clear" size="mini"
           >恢复默认</el-button
@@ -182,6 +112,7 @@ export default {
       bgcolor: "",
       fontColor: "",
       theme: "dark",
+      themeOptions: [],
       globalBorder: "",
       globalBorderOptions: Array.from(
         { length: 3 },
