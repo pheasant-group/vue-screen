@@ -4,6 +4,7 @@ import {
   title,
   bgColor,
   fontColor,
+  globalBorder,
   theme,
 } from "@/setting";
 
@@ -13,6 +14,7 @@ const state = {
   title,
   bgColor,
   fontColor,
+  globalBorder,
   theme
 };
 

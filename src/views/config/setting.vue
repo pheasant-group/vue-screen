@@ -30,7 +30,7 @@
           @change="(value) => changeSetting('fontColor', value)"
         ></Color-picker>
       </div>
-      <!-- <div class="drawer-item">
+      <div class="drawer-item">
         <span>全局边框:</span>
         <el-select
           v-model="globalBorder"
@@ -44,7 +44,7 @@
             :value="item"
           ></el-option>
         </el-select>
-      </div> -->
+      </div>
       <div class="drawer-item">
         <span>echarts主题:</span>
         <el-select
@@ -161,8 +161,8 @@ export default {
       theme: "dark",
       globalBorder: "",
       globalBorderOptions: Array.from(
-        { length: 13 },
-        (item, index) => `dv-border-box-${index + 1}`
+        { length: 3 },
+        (item, index) => `Border${index + 1}`
       ),
       index: 0
     };

@@ -5,7 +5,7 @@
     :col-num="100"
     :row-height="rowHeight"
     :use-css-transforms="true"
-    :vertical-compact="false"
+    :vertical-compact="true"
     :is-draggable="setting.settingShow"
     :is-resizable="setting.settingShow"
     @layout-ready="layoutReadyEvent"
@@ -109,7 +109,6 @@ export default {
 }
 ::v-deep {
   .border-resize {
-    border: 1px solid red;
     box-sizing: border-box;
   }
 }

@@ -5,7 +5,9 @@ import store from "./store";
 import "@/style/common.scss";
 import { ColorPicker, Input, Select, Option, Button } from "element-ui";
 import * as echarts from "echarts";
+import Border1 from "@/components/Border1";
 
+Vue.use(Border1);
 Vue.use(ColorPicker);
 Vue.use(Input);
 Vue.use(Select);

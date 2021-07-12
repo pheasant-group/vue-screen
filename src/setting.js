@@ -15,6 +15,7 @@ module.exports = {
   title: "Vue-screen",
   bgColor: "#100c2a",
   fontColor: "#fff",
+  globalBorder: 'Border1',
   // echarts主题 'dark','light'
   theme: "dark",
 };

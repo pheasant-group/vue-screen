@@ -1,7 +1,7 @@
 <template>
   <div class="color-picker">
     <el-color-picker
-      v-model="colors"
+      v-model="localColor"
       show-alpha
       :predefine="[
         '#409EFF',
@@ -13,7 +13,8 @@
         '#6959CD',
         '#f5222d',
       ]"
-      @change="change"
+      v-bind="$attrs"
+      v-on="$listeners"
       class="theme-picker"
       popper-class="theme-picker-dropdown"
     />
@@ -31,17 +32,12 @@ export default {
   },
   data() {
     return {
-      colors: "",
+      localColor: "",
     };
   },
   created() {
-    this.colors = this.color;
-  },
-  methods: {
-    change() {
-      this.$emit("change", this.colors);
-    },
-  },
+    this.localColor = this.color;
+  }
 };
 </script>
 

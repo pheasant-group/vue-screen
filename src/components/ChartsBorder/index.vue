@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Border from "@/components/Border";
+import Border from "@/components/BorderBox";
 import Charts from "@/components/Charts";
 export default {
   name: "ChartsBorder",
@@ -15,7 +15,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>
