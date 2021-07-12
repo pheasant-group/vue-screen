@@ -23,6 +23,7 @@
       @resize="resizeEvent"
       @resized="resizedEvent"
       :style="{ dispaly: setting.settingShow ? 'none' : 'block' }"
+      :class="{ 'border-resize': setting.settingShow }"
     >
       <template v-if="layoutContentShow">
         <router-view :index="index"></router-view>
@@ -108,6 +109,7 @@ export default {
 <style lang="scss" scoped>
 .vue-grid-layout {
   overflow: hidden;
+  min-height: 100%;
   .vue-grid-item {
     touch-action: none;
   }
@@ -116,6 +118,9 @@ export default {
   .vue-grid-item > .vue-resizable-handle {
     background: url("data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZmZmZmZmMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjYiIGhlaWdodD0iNiI+DQoJPHBhdGggZD0iTTYgNkgwVjQuMmg0LjJWMEg2djZ6IiBmaWxsPSJyZWQiIC8+DQo8L3N2Zz4NCg==");
     background-repeat: no-repeat;
+    box-sizing: border-box;
+  }
+  .border-resize {
     box-sizing: border-box;
   }
 }
