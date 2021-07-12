@@ -180,7 +180,7 @@ export default {
       ),
       headerBgImg: "header1",
       headerBgImgOptions: Array.from(
-        { length: 3 },
+        { length: 4 },
         (item, index) => `header${index + 1}`
       ),
     };
