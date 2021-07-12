@@ -83,12 +83,17 @@
           ></el-option>
         </el-select>
       </div>
+      <div class="drawer-item">
+        <span>layout布局:</span>
+        <el-input
+          type="textarea"
+          :autosize="{ minRows: 2, maxRows: 19 }"
+          v-model="layout"
+        />
+      </div>
       <div class="footer">
         <el-button type="primary" @click.native="clear" size="mini"
           >恢复默认</el-button
-        >
-        <el-button type="primary" @click.native="reload" size="mini"
-          >刷新生效</el-button
         >
         <el-button type="primary" @click.native="reload" size="mini"
           >上传后台</el-button
@@ -124,6 +129,7 @@ export default {
         { length: 4 },
         (item, index) => `header${index + 1}`
       ),
+      layout: [],
     };
   },
   computed: {
@@ -143,6 +149,7 @@ export default {
     this.globalBorder = this.setting.globalBorder;
     this.globalBorderColor = this.setting.globalBorderColor;
     this.headerBgImg = this.setting.headerBgImg;
+    this.layout = JSON.stringify(this.setting.layout, null, 4);
   },
   methods: {
     changeSetting(key, value) {
