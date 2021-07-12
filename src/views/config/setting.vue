@@ -76,7 +76,7 @@
           @change="(value) => changeSetting('theme', value)"
         >
           <el-option
-            v-for="item in ['dark', 'light']"
+            v-for="item in themeOptions"
             :key="item"
             :label="item"
             :value="item"
@@ -203,6 +203,10 @@ export default {
     this.bgColor = this.setting.bgColor;
     this.fontColor = this.setting.fontColor;
     this.theme = this.setting.theme;
+    this.themeOptions = require
+      .context("@/theme", false, /.json/)
+      .keys()
+      .map((item) => item.replace(/\.\/(.*)\.json/, '$1'));
     this.globalBorder = this.setting.globalBorder;
     this.globalBorderColor = this.setting.globalBorderColor;
     this.headerBgImg = this.setting.headerBgImg;

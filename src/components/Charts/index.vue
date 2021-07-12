@@ -1,9 +1,5 @@
 <template>
-  <div
-    :ref="ref"
-    class="chart"
-    :style="{ width: width, height: height }"
-  ></div>
+  <div :ref="ref" class="chart" :style="{ width: width, height: height }"></div>
 </template>
 
 <script>
@@ -50,8 +46,14 @@ export default {
     theme(value) {
       this.chart.showLoading();
       this.chart.dispose();
-      this.chart = this.$echarts.init(this.$refs[this.ref], value);
-    this.chart.setOption(this.option);
+      if (["dark", "light"].includes(value)) {
+        this.chart = this.$echarts.init(this.$refs[this.ref], value);
+      } else {
+        const data = require(`@/theme/${value}.json`);
+        this.$echarts.registerTheme(value, data);
+        this.chart = this.$echarts.init(this.$refs[this.ref], value);
+      }
+      this.chart.setOption(this.option);
     },
   },
   mounted() {
