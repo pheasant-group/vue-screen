@@ -1,0 +1,8 @@
+$headerHeight: 130px; // 标题高度
+$colorTime: #45f0ea; // datepicker的背景色
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+// :export {
+//   headerHeight: $headerHeight;
+// }

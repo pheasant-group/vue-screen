@@ -5,6 +5,7 @@
       :title="setting.title"
       :bgColor="setting.bgColor"
       :fontColor="setting.fontColor"
+      :headerBgImg="setting.headerBgImg"
     />
     <ChartsBorder v-if="index === 1" :option="option1" :theme="setting.theme" />
     <ChartsBorder v-if="index === 2" :option="option2" :theme="setting.theme" />

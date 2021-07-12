@@ -1,6 +1,18 @@
 <template>
-  <div class="top-header">
-    <div class="title" :style="{ color: fontColor, backgroundColor: bgColor }">
+  <div
+    class="header"
+    :style="{
+      backgroundColor: bgColor,
+      backgroundImage:
+        'url(' + require(`@/assets/image/${headerBgImg}.png`) + ')',
+    }"
+  >
+    <div
+      class="title"
+      :style="{
+        color: fontColor,
+      }"
+    >
       {{ title }}
     </div>
   </div>
@@ -22,15 +34,21 @@ export default {
       type: String,
       default: "#100c2a",
     },
+    headerBgImg: {
+      type: String,
+      default: "header1",
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.top-header {
-  position: relative;
+.header {
   width: 100%;
-  height: 100px;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;

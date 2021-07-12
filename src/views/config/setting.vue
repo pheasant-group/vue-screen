@@ -31,6 +31,20 @@
         ></Color-picker>
       </div>
       <div class="drawer-item">
+        <span>header背景:</span>
+        <el-select
+          v-model="headerBgImg"
+          @change="(value) => changeSetting('headerBgImg', value)"
+        >
+          <el-option
+            v-for="item in headerBgImgOptions"
+            :key="item"
+            :label="item"
+            :value="item"
+          ></el-option>
+        </el-select>
+      </div>
+      <div class="drawer-item">
         <span>全局边框:</span>
         <el-select
           v-model="globalBorder"
@@ -164,7 +178,11 @@ export default {
         { length: 3 },
         (item, index) => `Border${index + 1}`
       ),
-      index: 0
+      headerBgImg: "header1",
+      headerBgImgOptions: Array.from(
+        { length: 3 },
+        (item, index) => `header${index + 1}`
+      ),
     };
   },
   computed: {
@@ -176,6 +194,7 @@ export default {
     this.fontColor = this.setting.fontColor;
     this.theme = this.setting.theme;
     this.globalBorder = this.setting.globalBorder;
+    this.headerBgImg = this.setting.headerBgImg;
   },
   methods: {
     changeSetting(key, value) {

@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "@/style/common.scss";
+import "@/style/index.scss";
 import { ColorPicker, Input, Select, Option, Button } from "element-ui";
 import * as echarts from "echarts";
 import Border1 from "@/components/Border1";
