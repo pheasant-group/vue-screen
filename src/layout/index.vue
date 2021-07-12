@@ -59,6 +59,14 @@ export default {
       key: "settingShow",
       value: this.settingShow,
     });
+    this.$watch(
+      () => {
+        return this.setting.layout;
+      },
+      (value) => {
+        this.layout = value;
+      }
+    );
   },
   mounted() {
     this.initListener();

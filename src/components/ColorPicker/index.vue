@@ -37,18 +37,21 @@ export default {
   },
   created() {
     this.localColor = this.color;
-  }
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-.theme-picker .el-color-picker__trigger {
-  height: 26px !important;
-  width: 26px !important;
-  padding: 2px;
-}
-
+<style lang="scss">
 .theme-picker-dropdown .el-color-dropdown__link-btn {
   display: none;
+}
+</style>
+<style lang="scss" scoped>
+::v-deep {
+  .theme-picker .el-color-picker__trigger {
+    height: 26px !important;
+    width: 26px !important;
+    padding: 2px;
+  }
 }
 </style>

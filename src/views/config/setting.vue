@@ -1,7 +1,6 @@
 <template>
   <div class="drawer-container">
     <div class="drawer-box">
-      <h3 class="drawer-title">设置</h3>
       <div class="drawer-item">
         <span>标题:</span>
         <el-input
@@ -89,6 +88,7 @@
           type="textarea"
           :autosize="{ minRows: 2, maxRows: 19 }"
           v-model="layout"
+          @change="(value) => changeSetting('layout', value)"
         />
       </div>
       <div class="footer">
@@ -174,6 +174,13 @@ export default {
             value: "#fff",
           });
         }
+        return;
+      }
+      if (key === "layout") {
+        this.$store.dispatch("setting/changeSetting", {
+          key,
+          value: JSON.parse(value),
+        });
         return;
       }
       this.$store.dispatch("setting/changeSetting", { key, value });

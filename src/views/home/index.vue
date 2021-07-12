@@ -55,7 +55,7 @@
       :theme="setting.theme"
       :border-color="setting.globalBorderColor"
     />
-    <right-panel v-if="setting.settingShow">
+    <right-panel v-if="setting.settingShow && index === 0">
       <Setting />
     </right-panel>
   </div>
