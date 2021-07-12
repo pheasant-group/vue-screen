@@ -134,10 +134,12 @@ export default {
     this.bgColor = this.setting.bgColor;
     this.fontColor = this.setting.fontColor;
     this.theme = this.setting.theme;
-    this.themeOptions = require
-      .context("@/theme", false, /.json/)
-      .keys()
-      .map((item) => item.replace(/\.\/(.*)\.json/, '$1'));
+    this.themeOptions = ["dark", "light"].concat(
+      require
+        .context("@/theme", false, /.json/)
+        .keys()
+        .map((item) => item.replace(/\.\/(.*)\.json/, "$1"))
+    );
     this.globalBorder = this.setting.globalBorder;
     this.globalBorderColor = this.setting.globalBorderColor;
     this.headerBgImg = this.setting.headerBgImg;
