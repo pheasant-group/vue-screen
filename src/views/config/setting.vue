@@ -45,7 +45,7 @@
         </el-select>
       </div>
       <div class="drawer-item">
-        <span>全局边框:</span>
+        <span>边框样式:</span>
         <el-select
           v-model="globalBorder"
           placeholder="请选择"
@@ -58,6 +58,15 @@
             :value="item"
           ></el-option>
         </el-select>
+      </div>
+      <div class="drawer-item">
+        <span>边框颜色:</span>
+        <Color-picker
+          style="float: right;height: 26px;margin: -3px 8px 0 0;"
+          :color="globalBorderColor"
+          key="globalBorderColor"
+          @change="(value) => changeSetting('globalBorderColor', value)"
+        ></Color-picker>
       </div>
       <div class="drawer-item">
         <span>echarts主题:</span>
@@ -178,6 +187,7 @@ export default {
         { length: 3 },
         (item, index) => `Border${index + 1}`
       ),
+      globalBorderColor: "",
       headerBgImg: "header1",
       headerBgImgOptions: Array.from(
         { length: 4 },
@@ -194,6 +204,7 @@ export default {
     this.fontColor = this.setting.fontColor;
     this.theme = this.setting.theme;
     this.globalBorder = this.setting.globalBorder;
+    this.globalBorderColor = this.setting.globalBorderColor;
     this.headerBgImg = this.setting.headerBgImg;
   },
   methods: {

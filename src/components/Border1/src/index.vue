@@ -1,6 +1,6 @@
 <template>
   <div class="border1">
-    <div class="border-container">
+    <div class="border-container" :style="{ borderColor: borderColor }">
       <div class="right-top"></div>
       <div class="right-bottom"></div>
       <div class="left-bottom"></div>
@@ -18,6 +18,10 @@ export default {
     title: {
       type: String,
     },
+    borderColor: {
+      type: String,
+      default: "#5473bf",
+    },
   },
 };
 </script>
@@ -28,7 +32,8 @@ export default {
   width: 100%;
   height: 100%;
   .border-container {
-    border: 1px solid rgba(84, 115, 191, 1);
+    border-width: 1px;
+    border-style: solid;
     box-sizing: border-box;
     position: absolute;
     width: calc(100% - 10px);

@@ -1,5 +1,5 @@
 <template>
-  <component v-bind:is="border" class="border">
+  <component v-bind:is="border" class="border" v-bind="$attrs">
     <slot />
   </component>
 </template>

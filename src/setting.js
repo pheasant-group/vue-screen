@@ -17,6 +17,7 @@ module.exports = {
   fontColor: "#fff",
   headerBgImg: 'header1',
   globalBorder: 'Border1',
+  globalBorderColor: '#5473bf',
   // echarts主题 'dark','light'
   theme: "dark",
 };

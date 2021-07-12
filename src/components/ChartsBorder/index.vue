@@ -1,16 +1,16 @@
 <template>
-  <Border v-bind="$attrs">
+  <BorderBox v-bind="$attrs">
     <Charts v-bind="$attrs"></Charts>
-  </Border>
+  </BorderBox>
 </template>
 
 <script>
-import Border from "@/components/BorderBox";
+import BorderBox from "@/components/BorderBox";
 import Charts from "@/components/Charts";
 export default {
   name: "ChartsBorder",
   components: {
-    Border,
+    BorderBox,
     Charts,
   },
 };
