@@ -3,6 +3,7 @@
     <div class="border-container" :style="{ borderColor: borderColor }">
       <div class="right-top"></div>
       <div class="right-bottom"></div>
+      <div class="left-top"></div>
       <div class="left-bottom"></div>
       <div class="border-box-content">
         <slot></slot>
@@ -55,6 +56,15 @@ export default {
       bottom: -1px;
       border-bottom: 2px solid rgba(23, 241, 236, 1);
       border-right: 2px solid rgba(23, 241, 236, 1);
+      width: 15px;
+      height: 15px;
+    }
+    .left-top {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      border-top: 2px solid rgba(23, 241, 236, 1);
+      border-left: 2px solid rgba(23, 241, 236, 1);
       width: 15px;
       height: 15px;
     }

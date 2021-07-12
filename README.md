@@ -14,9 +14,15 @@ URL 后面加参数?config=1 开启配置模式
 - 边框
 - echarts 主题
 
-![20210711220355](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210711220355.png)
+![20210712210218](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210712210218.png)
 
 配置模式可以在右下角拖拽，点击组件可以拖动
+
+![20210712210257](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210712210257.png)
+
+可以放大缩小，随意拖动
+
+![20210712210422](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210712210422.png)
 
 ## 注意
 
