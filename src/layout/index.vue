@@ -25,6 +25,8 @@
         border: !layoutContentShow ? 'solid 1px red' : 'none',
       }"
       :class="{ 'border-resize': setting.settingShow }"
+      @move="moveEvent"
+      @moved="movedEvent"
       @resize="resizeEvent"
       @resized="resizedEvent"
     >
@@ -106,6 +108,14 @@ export default {
     // 调整大小后的事件
     resizedEvent() {
       this.layoutContentShow = true;
+    },
+    // 移动时
+    moveEvent() {
+      this.layoutContentShow = false;
+    },
+    // 移动之后
+    movedEvent(){
+      this.layoutContentShow = true
     },
     // 调整后保存
     layoutUpdatedEvent() {
