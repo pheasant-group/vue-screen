@@ -1,43 +1,35 @@
 <template>
   <div class="home" :style="{ backgroundColor: setting.bgColor }">
     <Header
-      v-if="index === 0"
+      v-if="i === 0"
       :title="setting.title"
       :bgColor="setting.bgColor"
       :fontColor="setting.fontColor"
       :headerBgImg="setting.headerBgImg"
     />
-    <ChartsBorder v-if="index === 1" :option="option1" />
-    <ChartsBorder v-if="index === 2" :option="option2" />
-    <ChartsBorder v-if="index === 3" :option="option3" />
-    <ChartsBorder v-if="index === 4" :option="option4" />
-    <ChartsBorder v-if="index === 5" :option="option5" />
-    <ChartsBorder v-if="index === 6" :option="option6" />
-    <ChartsBorder v-if="index === 7" :option="option7" />
-    <ChartsBorder v-if="index === 8" :option="option8" />
-    <right-panel v-if="setting.settingShow && index === 0">
-      <Setting />
-    </right-panel>
+    <template v-for="item in 8">
+      <ChartsBorder
+        :key="item"
+        v-if="i === item"
+        :option="$data['option' + item]"
+      />
+    </template>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import Header from "@/components/Header";
-import RightPanel from "@/components/RightPanel";
-import Setting from "@/views/config/setting.vue";
 import ChartsBorder from "@/views/components/ChartsBorder";
 
 export default {
   name: "Home",
   components: {
     Header,
-    RightPanel,
-    Setting,
     ChartsBorder,
   },
   props: {
-    index: {
+    i: {
       type: Number,
     },
   },

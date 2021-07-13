@@ -13,34 +13,46 @@
     :style="{ backgroundColor: setting.bgColor }"
   >
     <grid-item
-      v-for="(item, index) in layout"
+      v-for="item in layout"
       :key="item.i"
       :x="item.x"
       :y="item.y"
       :w="item.w"
       :h="item.h"
       :i="item.i"
+      :style="{
+        dispaly: setting.settingShow ? 'none' : 'block',
+        border: !layoutContentShow ? 'solid 1px red' : 'none',
+      }"
+      :class="{ 'border-resize': setting.settingShow }"
       @resize="resizeEvent"
       @resized="resizedEvent"
-      :style="{ dispaly: setting.settingShow ? 'none' : 'block' }"
-      :class="{ 'border-resize': setting.settingShow }"
     >
+      <span class="remove" @click="removeItem(item.i)">x</span>
       <template v-if="layoutContentShow">
-        <router-view :index="index"></router-view>
+        <router-view :i="item.i"></router-view>
       </template>
     </grid-item>
+    <right-panel v-if="setting.settingShow">
+      <Setting />
+    </right-panel>
   </grid-layout>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import { GridLayout, GridItem } from "vue-grid-layout";
+import RightPanel from "@/components/RightPanel";
+import Setting from "@/views/config/setting.vue";
 import { debounce } from "@/utils";
+import { MessageBox } from "element-ui";
 
 export default {
   components: {
     GridLayout,
     GridItem,
+    RightPanel,
+    Setting,
   },
   computed: {
     ...mapGetters(["setting"]),
@@ -102,6 +114,17 @@ export default {
         value: this.layout,
       });
     },
+    removeItem: function(value) {
+      MessageBox.confirm("确定要删除么?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      }).then(() => {
+        const index = this.layout.map((item) => item.i).indexOf(value);
+        this.layout.splice(index, 1);
+        this.layoutUpdatedEvent();
+      });
+    },
   },
 };
 </script>
@@ -112,6 +135,17 @@ export default {
   min-height: 100%;
   .vue-grid-item {
     touch-action: none;
+    .remove {
+      color: red;
+      font-size: 30px;
+      position: absolute;
+      top: 0px;
+      right: 15px;
+      width: 10px;
+      height: 10px;
+      cursor: pointer;
+      z-index: 999 !important;
+    }
   }
 }
 ::v-deep {

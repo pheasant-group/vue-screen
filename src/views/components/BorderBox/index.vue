@@ -19,8 +19,7 @@ export default {
     };
   },
   watch: {
-    border(value) {
-      console.log(value);
+    border() {
       this.render = false;
       this.render = true;
     },
