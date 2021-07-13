@@ -12,7 +12,7 @@ module.exports = {
     { x: 75, y: 40, w: 25, h: 30, i: 7 },
     { x: 75, y: 70, w: 25, h: 30, i: 8 },
   ],
-  title: "Vue-screen",
+  title: "Vue-Screen",
   bgColor: "#100c2a",
   fontColor: "#fff",
   headerBgImg: 'header1',

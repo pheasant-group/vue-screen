@@ -22,7 +22,7 @@
       :i="item.i"
       :style="{
         dispaly: setting.settingShow ? 'none' : 'block',
-        border: !layoutContentShow ? 'solid 1px red' : 'none',
+        border: setting.settingShow ? 'solid 1px red' : 'none',
       }"
       :class="{ 'border-resize': setting.settingShow }"
       @move="moveEvent"
@@ -85,6 +85,10 @@ export default {
       },
       (value) => {
         this.layout = value;
+        this.layoutContentShow = false;
+        this.$nextTick(() => {
+          this.layoutContentShow = true;
+        });
       }
     );
   },
@@ -150,6 +154,7 @@ export default {
   min-height: 100%;
   .vue-grid-item {
     touch-action: none;
+    box-sizing: border-box;
     .remove {
       color: red;
       font-size: 30px;

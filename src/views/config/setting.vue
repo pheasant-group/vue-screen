@@ -91,7 +91,10 @@
           @change="(value) => changeSetting('layout', value)"
         />
       </div>
-      <div class="footer">
+      <div class="buttons">
+        <el-button type="primary" @click.native="add" size="mini"
+          >新增模块</el-button
+        >
         <el-button type="primary" @click.native="clear" size="mini"
           >恢复默认</el-button
         >
@@ -204,6 +207,20 @@ export default {
     reload() {
       location.reload();
     },
+    add() {
+      const layout = JSON.parse(this.layout);
+      layout.push({
+        x: 0,
+        y: 100,
+        w: 30,
+        h: 30,
+        i: this.setting.layout.length,
+      });
+      this.$store.dispatch("setting/changeSetting", {
+        key: "layout",
+        value: layout,
+      });
+    },
   },
 };
 </script>
@@ -242,12 +259,12 @@ export default {
       color: rgba(0, 0, 0, 0.65);
     }
   }
-  .footer {
+  .buttons {
     position: sticky;
     left: 0;
     bottom: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 </style>
