@@ -30,7 +30,12 @@
       @resize="resizeEvent"
       @resized="resizedEvent"
     >
-      <span class="remove" @click="removeItem(item.i)">x</span>
+      <span
+        v-if="setting.settingShow"
+        class="remove"
+        @click="removeItem(item.i)"
+        >x</span
+      >
       <template v-if="layoutContentShow">
         <router-view :i="item.i"></router-view>
       </template>
@@ -114,8 +119,8 @@ export default {
       this.layoutContentShow = false;
     },
     // 移动之后
-    movedEvent(){
-      this.layoutContentShow = true
+    movedEvent() {
+      this.layoutContentShow = true;
     },
     // 调整后保存
     layoutUpdatedEvent() {
