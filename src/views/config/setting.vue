@@ -149,7 +149,17 @@ export default {
     this.globalBorder = this.setting.globalBorder;
     this.globalBorderColor = this.setting.globalBorderColor;
     this.headerBgImg = this.setting.headerBgImg;
-    this.layout = JSON.stringify(this.setting.layout, null, 4);
+    this.$watch(
+      () => {
+        return this.setting.layout;
+      },
+      (value) => {
+        this.layout = JSON.stringify(value, null, 4);
+      },
+      {
+        immediate: true,
+      }
+    );
   },
   methods: {
     changeSetting(key, value) {
