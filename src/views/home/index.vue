@@ -7,62 +7,14 @@
       :fontColor="setting.fontColor"
       :headerBgImg="setting.headerBgImg"
     />
-    <ChartsBorder
-      v-if="index === 1"
-      :option="option1"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 2"
-      :option="option2"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 3"
-      :option="option3"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 4"
-      :option="option4"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 5"
-      :option="option5"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 6"
-      :option="option6"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 7"
-      :option="option7"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
-    <ChartsBorder
-      v-if="index === 8"
-      :option="option8"
-      :theme="setting.theme"
-      :border="setting.globalBorder"
-      :border-color="setting.globalBorderColor"
-    />
+    <ChartsBorder v-if="index === 1" :option="option1" />
+    <ChartsBorder v-if="index === 2" :option="option2" />
+    <ChartsBorder v-if="index === 3" :option="option3" />
+    <ChartsBorder v-if="index === 4" :option="option4" />
+    <ChartsBorder v-if="index === 5" :option="option5" />
+    <ChartsBorder v-if="index === 6" :option="option6" />
+    <ChartsBorder v-if="index === 7" :option="option7" />
+    <ChartsBorder v-if="index === 8" :option="option8" />
     <right-panel v-if="setting.settingShow && index === 0">
       <Setting />
     </right-panel>
@@ -74,7 +26,7 @@ import { mapGetters } from "vuex";
 import Header from "@/components/Header";
 import RightPanel from "@/components/RightPanel";
 import Setting from "@/views/config/setting.vue";
-import ChartsBorder from "@/components/ChartsBorder";
+import ChartsBorder from "@/views/components/ChartsBorder";
 
 export default {
   name: "Home",
