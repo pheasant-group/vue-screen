@@ -2,11 +2,13 @@
 
 利用 vue,charts 封装的可视化大屏快速搭建模板
 
-预览链接：<https://blog.shenzjd.com/vue-screen/#/home>
+预览模式：<https://blog.shenzjd.com/vue-screen/#/home>
+
+![20210713211640](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210713211640.png)
 
 URL 后面加参数?config=1 开启配置模式
 
-配置模式预览链接：<https://blog.shenzjd.com/vue-screen/#/home?config=1>
+配置模式：<https://blog.shenzjd.com/vue-screen/#/home?config=1>
 
 - 在线可视化配置(修改同步生效)
 - 可修改标题
@@ -18,6 +20,8 @@ URL 后面加参数?config=1 开启配置模式
 - 点击可拖拽移动
 - 右下角放大缩小
 - layout 可以调整布局配置(当然也完全可以自己手动拖动)
+
+![20210713211600](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210713211600.png)
 
 ## 主题配置
 
@@ -41,6 +45,16 @@ URL 后面加参数?config=1 开启配置模式
 
 ## layout
 
+布局采用水平和垂直方向都是分割成一百份，比如 `w:100` 表示 `width:100vw` 的意思，渲染就会占据一排，
+
+垂直方向上的高度也是分成一百份，`h：10` 表示 `height:10vh`
+
+例如下面的第一个 layoutItem，渲染到页面上是 header
+
+x,y 分别表示横纵坐标，也就是左上角的位置
+
+i 表示 id，这个只是必须的，而且带唯一
+
 ```js
 [
   { x: 0, y: 0, w: 100, h: 10, i: 0 },
@@ -54,40 +68,6 @@ URL 后面加参数?config=1 开启配置模式
   { x: 75, y: 70, w: 25, h: 30, i: 8 },
 ];
 ```
-
-### layoutitem
-
-#### i
-
-type: String
-required: true
-栅格中元素的 ID。
-
-#### x
-
-type: Number
-required: true
-标识栅格元素位于第几列，需为自然数。
-
-#### y
-
-type: Number
-required: true
-标识栅格元素位于第几行，需为自然数。
-
-#### w
-
-type: Number
-required: true
-标识栅格元素的初始宽度，值为 colWidth 的倍数。
-
-#### h
-
-type: Number
-required: true
-标识栅格元素的初始高度，值为 rowHeight 的倍数。
-
-![20210713204949](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210713204949.png)
 
 ## 注意
 
