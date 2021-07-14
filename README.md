@@ -2,13 +2,13 @@
 
 利用 vue,charts 封装的可视化大屏快速搭建模板
 
-预览模式：<https://blog.shenzjd.com/vue-screen/#/home>
+预览模式：<https://blog.shenzjd.com/vue-screen/#/>
 
 ![20210713211640](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20210713211640.png)
 
 URL 后面加参数?config=1 开启配置模式
 
-配置模式：<https://blog.shenzjd.com/vue-screen/#/home?config=1>
+配置模式：<https://blog.shenzjd.com/vue-screen/#/?config=1>
 
 - 在线可视化配置(修改同步生效)
 - 可修改标题
