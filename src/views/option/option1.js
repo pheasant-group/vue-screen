@@ -4,7 +4,6 @@ export default {
   xAxis: {
     type: "category",
     boundaryGap: true,
-    //   data: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06"],
     axisLine: {
       lineStyle: {
         color: "rgba(255,255,255,0.3)",
@@ -56,7 +55,6 @@ export default {
       },
     },
     {
-      // data: [820, 932, 901, 934, 1290, 1330],
       type: "line",
       color: "#00f2f1", //折线颜色
       smooth: true, //折线是否带有弧度

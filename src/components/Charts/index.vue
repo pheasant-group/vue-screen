@@ -62,8 +62,8 @@ export default {
           if (this.mapJson) {
             json = require(`@/assets/json/${this.mapJson}.json`);
             require("echarts-gl");
+            this.$echarts.registerMap("mapName", json);
           }
-          this.$echarts.registerMap("mapName", json);
           this.chart.setOption(this.option);
         });
       },
