@@ -73,7 +73,7 @@ export default {
     };
   },
   created() {
-    this.layout = this.setting.layout;
+    // this.layout = this.setting.layout;
     this.settingShow = Boolean(this.$route.query.config);
     this.$store.dispatch("setting/changeSetting", {
       key: "settingShow",
@@ -85,10 +85,9 @@ export default {
       },
       (value) => {
         this.layout = value;
-        this.layoutContentShow = false;
-        this.$nextTick(() => {
-          this.layoutContentShow = true;
-        });
+      },
+      {
+        immediate: true,
       }
     );
   },

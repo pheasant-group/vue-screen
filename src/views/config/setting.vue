@@ -109,6 +109,7 @@
 <script>
 import { mapGetters } from "vuex";
 import ColorPicker from "@/components/ColorPicker/index.vue";
+import { uuid } from "@/utils";
 
 export default {
   components: {
@@ -214,7 +215,7 @@ export default {
         y: 100,
         w: 30,
         h: 30,
-        i: this.setting.layout.length,
+        i: uuid(),
       });
       this.$store.dispatch("setting/changeSetting", {
         key: "layout",

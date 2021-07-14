@@ -1,7 +1,7 @@
 <template>
   <div class="home" :style="{ backgroundColor: setting.bgColor }">
     <Header
-      v-if="i === 0"
+      v-if="i === '0'"
       :title="setting.title"
       :bgColor="setting.bgColor"
       :fontColor="setting.fontColor"
@@ -10,7 +10,7 @@
     <template v-for="item in 8">
       <ChartsBorder
         :key="item"
-        v-if="i === item"
+        v-if="i === String(item)"
         :option="$data['option' + item]"
       />
     </template>
@@ -30,7 +30,7 @@ export default {
   },
   props: {
     i: {
-      type: Number,
+      type: String,
     },
   },
   computed: {
