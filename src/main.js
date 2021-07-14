@@ -5,6 +5,7 @@ import store from "./store";
 import "@/style/index.scss";
 import { ColorPicker, Input, Select, Option, Button } from "element-ui";
 import * as echarts from "echarts";
+
 import Border1 from "@/components/Border1";
 import Border2 from "@/components/Border2";
 

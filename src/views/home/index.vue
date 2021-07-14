@@ -8,11 +8,16 @@
       :headerBgImg="setting.headerBgImg"
     />
     <template v-for="item in 8">
-      <ChartsBorder
-        :key="item"
-        v-if="i === String(item)"
-        :option="$data['option' + item]"
-      />
+      <template v-if="i === String(item) && [4].includes(i)">
+        <ChartsBorder :key="item" :option="$data['option' + item]" />
+      </template>
+      <template v-if="i === String(item) && ![4].includes(i)">
+        <ChartsBorder
+          :key="item"
+          :option="$data['option' + item]"
+          mapJson="库尔勒市"
+        />
+      </template>
     </template>
   </div>
 </template>
@@ -21,6 +26,8 @@
 import { mapGetters } from "vuex";
 import Header from "@/components/Header";
 import ChartsBorder from "@/views/components/ChartsBorder";
+import option1 from "@/views/option/option1.js";
+import option4 from "@/views/option/option4.js";
 
 export default {
   name: "Home",
@@ -38,21 +45,18 @@ export default {
   },
   data() {
     return {
+      option: [],
       option1: {
-        xAxis: {
-          type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        ...option1,
+        dataset: {
+          source: [
+            {
+              date: "07-01",
+              orderAmt: 90.05,
+              orderNum: 546,
+            },
+          ],
         },
-        yAxis: {
-          type: "value",
-        },
-        series: [
-          {
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: "line",
-            smooth: true,
-          },
-        ],
       },
       option2: {
         tooltip: {
@@ -185,42 +189,7 @@ export default {
           },
         ],
       },
-      option4: {
-        legend: {
-          top: "bottom",
-        },
-        toolbox: {
-          show: true,
-          feature: {
-            mark: { show: true },
-            dataView: { show: true, readOnly: false },
-            restore: { show: true },
-            saveAsImage: { show: true },
-          },
-        },
-        series: [
-          {
-            name: "面积模式",
-            type: "pie",
-            radius: [50, 250],
-            center: ["50%", "50%"],
-            roseType: "area",
-            itemStyle: {
-              borderRadius: 8,
-            },
-            data: [
-              { value: 40, name: "rose 1" },
-              { value: 38, name: "rose 2" },
-              { value: 32, name: "rose 3" },
-              { value: 30, name: "rose 4" },
-              { value: 28, name: "rose 5" },
-              { value: 26, name: "rose 6" },
-              { value: 22, name: "rose 7" },
-              { value: 18, name: "rose 8" },
-            ],
-          },
-        ],
-      },
+      option4,
       option5: {
         title: {
           text: "未来一周气温变化",
@@ -478,6 +447,14 @@ export default {
         ],
       },
     };
+  },
+  created() {
+    console.log(1)
+    // this.option = require
+    //   .context("@/views/option", false, /.js/)
+    //   .keys()
+    //   .map((item) => item.replace(/\.\/(.*)\.js/, "$1"));
+    // console.log(this.option);
   },
 };
 </script>
