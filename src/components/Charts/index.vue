@@ -32,6 +32,9 @@ export default {
         };
       },
     },
+    mapJson: {
+      type: String,
+    },
   },
   data() {
     return {
@@ -43,24 +46,33 @@ export default {
     };
   },
   watch: {
-    theme(value) {
-      this.chart.showLoading();
-      this.chart.dispose();
-      if (["dark", "light"].includes(value)) {
-        this.chart = this.$echarts.init(this.$refs[this.ref], value);
-      } else {
-        const data = require(`@/theme/${value}.json`);
-        this.$echarts.registerTheme(value, data);
-        this.chart = this.$echarts.init(this.$refs[this.ref], value);
-      }
-      this.chart.setOption(this.option);
+    theme: {
+      handler(value) {
+        this.$nextTick(() => {
+          this.chart && this.chart.showLoading();
+          this.chart && this.chart.dispose();
+          if (["dark", "light"].includes(value)) {
+            this.chart = this.$echarts.init(this.$refs[this.ref], value);
+          } else {
+            const data = require(`@/theme/${value}.json`);
+            this.$echarts.registerTheme(value, data);
+            this.chart = this.$echarts.init(this.$refs[this.ref], value);
+          }
+          let json;
+          if (this.mapJson) {
+            json = require(`@/assets/json/${this.mapJson}.json`);
+            require("echarts-gl");
+            this.$echarts.registerMap("mapName", json);
+          }
+          this.chart.setOption(this.option);
+        });
+      },
+      immediate: true,
     },
   },
   mounted() {
     this.width = this.$refs[this.ref].clientWidth;
     this.height = this.$refs[this.ref].clientHeight;
-    this.chart = this.$echarts.init(this.$refs[this.ref], this.theme);
-    this.chart.setOption(this.option);
     // 监听window的resize
     this.initListener();
   },
