@@ -6,8 +6,8 @@
     :row-height="rowHeight"
     :use-css-transforms="true"
     :vertical-compact="true"
-    :is-draggable="setting.settingShow"
-    :is-resizable="setting.settingShow"
+    :is-draggable="true"
+    :is-resizable="true"
     @layout-ready="layoutReadyEvent"
     @layout-updated="layoutUpdatedEvent"
     :style="{ backgroundColor: setting.bgColor }"
@@ -92,6 +92,7 @@ export default {
     Setting,
     Header,
     ChartsBorder,
+    
   },
   computed: {
     ...mapGetters(["setting"]),
